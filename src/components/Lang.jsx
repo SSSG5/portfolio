@@ -14,25 +14,14 @@ const Lang = () => {
       <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
         Languages & Tools
       </h2>
-
-      {/* 2-column grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-y-16 gap-x-20">
+      {/* Wrap in grid with 2 columns */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-y-16 gap-x-20 ">
         {sections.map((section, index) => (
-          <div
-            key={index}
-            className={`w-full flex flex-col ${
-              index % 2 === 0 ? "items-start text-left" : "items-end text-right"
-            }`}
-          >
-            <h3 className="text-2xl font-semibold mb-6">
+          <div key={index} className="w-full">
+            <h3 className="text-2xl font-semibold mb-6 text-start">
               {section.section}
             </h3>
-
-            <div
-              className={`flex flex-wrap gap-4 ${
-                index % 2 === 0 ? "justify-start" : "justify-end"
-              }`}
-            >
+            <div className="flex flex-wrap gap-4 px-4">
               {section.items.map((item, idx) => (
                 <div
                   key={idx}
