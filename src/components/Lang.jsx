@@ -10,7 +10,7 @@ const Lang = () => {
   }, []);
 
   return (
-    <div className="py-10 px-6 md:px-10 lg:px-20">
+    <div className="py-10 px-6 md:px-10 lg:px-20 bg-[radial-gradient(circle_at_right,rgba(50,150,255,1)_0%,rgba(100,100,255,0.8)_5%,rgba(120,50,200,0.7)_15%,rgba(20,10,50,0.7)_30%,black_50%)]">
       <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
         Languages & Tools
       </h2>
@@ -23,10 +23,7 @@ const Lang = () => {
             </h3>
             <div className="flex flex-wrap gap-4 px-4">
               {section.items.map((item, idx) => (
-                <div
-                  key={idx}
-                  className="flex flex-col items-center space-y-2"
-                >
+                <div key={idx} className="flex flex-col items-center space-y-2">
                   <div
                     className="w-16 h-16 flex items-center justify-center rounded-2xl shadow-lg"
                     style={{
@@ -34,7 +31,11 @@ const Lang = () => {
                       border: `2px solid ${item.dominantColor}`,
                     }}
                   >
-                    <img src={item.logo} alt={item.name} className="w-10 h-10" />
+                    <img
+                      src={item.logo}
+                      alt={item.name}
+                      className="w-10 h-10"
+                    />
                   </div>
                   <p className="text-sm font-medium">{item.name}</p>
                 </div>
