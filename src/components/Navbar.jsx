@@ -3,8 +3,8 @@ import CoffeeGif from "../assets/hero/coffee2.gif";
 
 const Navbar = () => {
   return (
-    <div className="flex justify-center">
-      <div className="w-1/2 h-12 border border-black/5 bg-black/20 shadow-lg backdrop-filter backdrop-blur-3xl rounded-full px-6 py-3 flex items-center justify-between text-[#efefef] fixed">
+    <div className="flex justify-center z-10">
+      <div className="w-1/2 h-12 border border-black/5 bg-black/20 shadow-lg backdrop-filter backdrop-blur-3xl rounded-full px-6 py-3 flex items-center justify-between text-[#efefef] fixed z-50">
         <div>
           <p className="font-bodoni text-2xl">{"S."}</p>
         </div>

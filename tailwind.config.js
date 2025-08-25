@@ -8,6 +8,7 @@ export default {
         roboto: ["Roboto", "sans-serif"],
         inter: ["Inter", "sans-serif"],
         bodoni: ["Bodoni Moda", "Bodoni Moda SC", "serif"],
+        cursive: ["Gochi Hand", "cursive"],
       },
       colors: {
         "c-orange": "#E6443C",

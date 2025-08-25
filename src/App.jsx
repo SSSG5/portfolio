@@ -6,7 +6,7 @@ import Navbar from "./components/Navbar";
 
 function App() {
   return (
-    <div className="pt-4 text-[#020202] bg-[#f8f7f3]">
+    <div className="pt-4 text-[#020202] bg-shadow-a0">
       <Navbar />
       <Hero />
       <Lang />

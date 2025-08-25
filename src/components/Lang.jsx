@@ -10,7 +10,7 @@ const Lang = () => {
   }, []);
 
   return (
-    <div className="px-20 bg-[#020202] text-[#f8f7f3] h-screen">
+    <div className="px-20 bg-[#020202] text-[#f8f7f3] h-full py-10">
       <h2 className="text-7xl font-bold text-start mb-12 relative -top-6">
         languages & tools
       </h2>
