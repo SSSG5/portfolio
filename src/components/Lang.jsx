@@ -10,9 +10,9 @@ const Lang = () => {
   }, []);
 
   return (
-    <div className="py-10 px-6 md:px-10 lg:px-20 bg-[radial-gradient(circle_at_right,rgba(50,150,255,1)_0%,rgba(100,100,255,0.8)_5%,rgba(120,50,200,0.7)_15%,rgba(20,10,50,0.7)_30%,black_50%)]">
-      <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-        Languages & Tools
+    <div className="px-20 bg-[#020202] text-[#f8f7f3] h-screen">
+      <h2 className="text-7xl font-bold text-start mb-12 relative -top-6">
+        languages & tools
       </h2>
       {/* Wrap in grid with 2 columns */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-y-16 gap-x-20 ">
