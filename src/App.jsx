@@ -10,7 +10,7 @@ function App() {
       <Navbar />
       <Hero />
       <Lang />
-      <Skill />
+      {/* <Skill /> */}
     </div>
   );
 }
