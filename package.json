@@ -7,10 +7,12 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "colorthief": "^2.6.0",
+    "framer-motion": "^12.23.12",
     "pdfjs-dist": "5.4.54",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",

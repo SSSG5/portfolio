@@ -1,16 +1,22 @@
 import { useState } from "react";
 import Hero from "./components/Hero";
-import Skill from "./components/Skill";
+import Projects from "./components/Projects";
 import Lang from "./components/Lang";
 import Navbar from "./components/Navbar";
 
 function App() {
   return (
-    <div className="pt-4 text-[#020202] bg-shadow-a0">
+    <div className="text-[#020202] bg-[#020617]">
       <Navbar />
-      <Hero />
-      <Lang />
-      {/* <Skill /> */}
+      <section id="home">
+        <Hero />
+      </section>
+      <section id="skills">
+        <Lang />
+      </section>
+      <section id="projects">
+        <Projects />
+      </section>
     </div>
   );
 }

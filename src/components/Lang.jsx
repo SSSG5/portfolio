@@ -2,18 +2,78 @@ import React, { useEffect, useState } from "react";
 
 const Lang = () => {
   const [sections, setSections] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  // Calculate counts
+  const sectionsCount = sections.length;
+  const languageCount = sections.reduce((total, section) => total + section.items.length, 0);
+
+  console.log("sectionsCount:", sectionsCount);
+  console.log("languageCount:", languageCount);
 
   useEffect(() => {
-    fetch("/languages.json")
-      .then((res) => res.json())
-      .then((data) => setSections(data));
+    const fetchUrl = "/portfolio/languages.json";
+    console.log("Lang component mounted, fetching data from:", fetchUrl);
+    setLoading(true);
+    // Use the correct path that matches Vite base configuration
+    fetch(fetchUrl)
+      .then((res) => {
+        console.log("Fetch response:", res);
+        console.log("Response status:", res.status);
+        console.log("Response ok:", res.ok);
+        console.log("Response headers:", res.headers);
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
+        return res.json();
+      })
+      .then((data) => {
+        console.log("Fetched data:", data);
+        console.log("Data type:", typeof data);
+        console.log("Data length:", Array.isArray(data) ? data.length : 'Not an array');
+        setSections(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Error fetching data:", err);
+        setError(err.message);
+        setLoading(false);
+      });
   }, []);
 
+  console.log("Current sections state:", sections);
+  console.log("Loading:", loading);
+  console.log("Error:", error);
+
+  if (loading) {
+    return (
+      <div className="px-10 bg-shadow-a0 text-[#f8f7f3] h-full py-10">
+        <h2 className="text-7xl font-bold text-start mb-12 relative -top-6">
+          languages & tools
+        </h2>
+        <div className="text-center text-2xl">Loading...</div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="px-10 bg-shadow-a0 text-[#f8f7f3] h-full py-10">
+        <h2 className="text-7xl font-bold text-start mb-12 relative -top-6">
+          languages & tools
+        </h2>
+        <div className="text-center text-2xl text-red-400">Error: {error}</div>
+      </div>
+    );
+  }
+
   return (
-    <div className="px-10 bg-shadow-a0 text-[#f8f7f3] h-full py-10">
+    <div className="px-10 bg-[#020617] text-[#f8f7f3] h-full py-10">
       <h2 className="text-7xl font-bold text-start mb-12 relative -top-6">
         languages & tools
       </h2>
+
       {/* Wrap in grid with 2 columns */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-y-16 gap-x-20 ">
         {sections.map((section, index) => (
@@ -27,12 +87,12 @@ const Lang = () => {
                   <div
                     className="w-16 h-16 flex items-center justify-center rounded-2xl shadow-lg"
                     style={{
-                      background: `${item.dominantColor}20`,
-                      border: `2px solid ${item.dominantColor}`,
+                      background: `${item.dominantColor || '#666'}20`,
+                      border: `2px solid ${item.dominantColor || '#666'}`,
                     }}
                   >
                     <img
-                      src={item.logo}
+                      src={item.logo.replace(/^\//, './')}
                       alt={item.name}
                       className="w-10 h-10"
                     />
