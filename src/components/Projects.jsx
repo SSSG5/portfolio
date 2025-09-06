@@ -60,10 +60,10 @@ const Projects = () => {
       className="bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
     >
       {/* Project Header */}
-      <div className="p-6 border-b border-gray-100 dark:border-gray-700">
+      <div className="p-4 lg:p-6 border-b border-gray-100 dark:border-gray-700">
         <div className="flex items-start justify-between mb-3">
           <div className="flex items-center gap-2">
-            <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-c-cream transition-colors">
+            <h3 className="text-lg lg:text-xl font-bold text-gray-900 dark:text-white group-hover:text-c-cream transition-colors">
               {project.name}
             </h3>
             {project.featured && (
@@ -81,7 +81,7 @@ const Projects = () => {
                 rel="noopener noreferrer"
                 className="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-c-cream hover:text-white transition-all duration-200"
               >
-                <FaGithub className="w-4 h-4 text-c-cream" />
+                <FaGithub className="w-3 lg:w-4 h-3 lg:h-4 text-c-cream" />
               </a>
             )}
             {project.liveLink && (
@@ -91,24 +91,24 @@ const Projects = () => {
                 rel="noopener noreferrer"
                 className="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-c-cream hover:text-white transition-all duration-200"
               >
-                <FaExternalLinkAlt className="w-4 h-4 text-c-cream" />
+                <FaExternalLinkAlt className="w-3 lg:w-4 h-3 lg:h-4 text-c-cream" />
               </a>
             )}
           </div>
         </div>
 
-        <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-start">
+        <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-start text-sm lg:text-base">
           {project.description}
         </p>
       </div>
 
       {/* Tags */}
-      <div className="px-6 py-4">
+      <div className="px-4 lg:px-6 py-4">
         <div className="flex flex-wrap gap-2 mb-4">
           {project.tags.map((tag, idx) => (
             <span
               key={idx}
-              className="px-3 py-1 bg-c-cream/10 text-c-cream text-sm rounded-full font-medium"
+              className="px-2 lg:px-3 py-1 bg-c-cream/10 text-c-cream text-xs lg:text-sm rounded-full font-medium"
             >
               {tag}
             </span>
@@ -116,22 +116,22 @@ const Projects = () => {
         </div>
 
         {/* Technologies */}
-        <div className="flex flex-wrap gap-3">
+        <div className="flex flex-wrap gap-2 lg:gap-3">
           {project.languages.map((lang, idx) => (
             <div
               key={idx}
-              className="flex items-center gap-2 px-3 py-2 bg-gray-50 dark:bg-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors"
+              className="flex items-center gap-1 lg:gap-2 px-2 lg:px-3 py-2 bg-gray-50 dark:bg-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors"
               title={lang.name}
             >
               <img
                 src={lang.logo}
                 alt={lang.name}
-                className="w-5 h-5 object-contain"
+                className="w-4 lg:w-5 h-4 lg:h-5 object-contain"
                 onError={(e) => {
                   e.target.style.display = "none";
                 }}
               />
-              <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+              <span className="text-xs lg:text-sm font-medium text-gray-700 dark:text-gray-300">
                 {lang.name}
               </span>
             </div>
@@ -150,7 +150,7 @@ const Projects = () => {
   }
 
   return (
-    <div className="min-h-screen px-10 py-10 bg-[#020617]">
+    <div className="min-h-screen px-4 sm:px-6 lg:px-10 py-10 bg-[#020617]">
       <div className="">
         {/* Header */}
         <motion.div
@@ -159,10 +159,10 @@ const Projects = () => {
           transition={{ duration: 0.6 }}
           className="text-left mb-12"
         >
-          <h1 className="font-poppins font-bold text-4xl lg:text-5xl text-gray-900 dark:text-white mb-4">
+          <h1 className="font-poppins font-bold text-3xl sm:text-4xl lg:text-5xl text-gray-900 dark:text-white mb-4">
             My <span className="text-c-cream">Projects</span>
           </h1>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl text-start">
+          <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-2xl text-start">
             Explore my portfolio of projects spanning web development, AI/ML,
             and IoT solutions
           </p>
@@ -185,14 +185,14 @@ const Projects = () => {
               <button
                 key={idx}
                 onClick={() => handleFilterChange(filter.name)}
-                className={`group relative px-6 py-3 rounded-full font-medium transition-all duration-300 flex items-center gap-2 ${
+                className={`group relative px-4 lg:px-6 py-2 lg:py-3 rounded-full font-medium transition-all duration-300 flex items-center gap-2 text-sm lg:text-base ${
                   activeFilter === filter.name
                     ? "bg-c-cream/80 text-white shadow-lg scale-105"
                     : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 shadow-md hover:shadow-lg"
                 }`}
               >
                 <FaFilter
-                  className={`w-4 h-4 ${
+                  className={`w-3 lg:w-4 h-3 lg:h-4 ${
                     activeFilter === filter.name ? "text-white" : "text-c-cream"
                   }`}
                 />
@@ -219,7 +219,7 @@ const Projects = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8"
           >
             {filteredProjects.map((project, index) => (
               <ProjectCard key={project.id} project={project} index={index} />

@@ -27,7 +27,7 @@ const Socials = () => {
   ];
 
   return (
-    <div className="flex mt-6 gap-2 relative">
+    <div className="flex mt-4 lg:mt-6 gap-2 relative">
       <div className="flex">
         {socials.map((social, index) => (
           <a
@@ -37,15 +37,13 @@ const Socials = () => {
             rel="noopener noreferrer"
             className={`relative z-${
               10 - index
-            } -ml-2 first:ml-0 border border-gray-400 rounded-full p-4 text-white hover:bg-gray-800 transition`}
+            } -ml-2 first:ml-0 border border-gray-400 rounded-full p-3 lg:p-4 text-white hover:bg-gray-800 transition text-sm lg:text-base`}
           >
             {social.icon}
           </a>
         ))}
       </div>
-      <div className="w-full h-4 border-t-2 self-center mt-3 border-white/10">
-
-      </div>
+      <div className="w-full h-4 border-t-2 self-center mt-3 border-white/10"></div>
     </div>
   );
 };

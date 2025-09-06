@@ -7,7 +7,10 @@ const Lang = () => {
 
   // Calculate counts
   const sectionsCount = sections.length;
-  const languageCount = sections.reduce((total, section) => total + section.items.length, 0);
+  const languageCount = sections.reduce(
+    (total, section) => total + section.items.length,
+    0
+  );
 
   console.log("sectionsCount:", sectionsCount);
   console.log("languageCount:", languageCount);
@@ -31,7 +34,10 @@ const Lang = () => {
       .then((data) => {
         console.log("Fetched data:", data);
         console.log("Data type:", typeof data);
-        console.log("Data length:", Array.isArray(data) ? data.length : 'Not an array');
+        console.log(
+          "Data length:",
+          Array.isArray(data) ? data.length : "Not an array"
+        );
         setSections(data);
         setLoading(false);
       })
@@ -48,8 +54,8 @@ const Lang = () => {
 
   if (loading) {
     return (
-      <div className="px-10 bg-shadow-a0 text-[#f8f7f3] h-full py-10">
-        <h2 className="text-7xl font-bold text-start mb-12 relative -top-6">
+      <div className="px-4 sm:px-6 lg:px-10 bg-shadow-a0 text-[#f8f7f3] h-full py-10">
+        <h2 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-start mb-12 relative -top-6">
           languages & tools
         </h2>
         <div className="text-center text-2xl">Loading...</div>
@@ -59,8 +65,8 @@ const Lang = () => {
 
   if (error) {
     return (
-      <div className="px-10 bg-shadow-a0 text-[#f8f7f3] h-full py-10">
-        <h2 className="text-7xl font-bold text-start mb-12 relative -top-6">
+      <div className="px-4 sm:px-6 lg:px-10 bg-shadow-a0 text-[#f8f7f3] h-full py-10">
+        <h2 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-start mb-12 relative -top-6">
           languages & tools
         </h2>
         <div className="text-center text-2xl text-red-400">Error: {error}</div>
@@ -69,35 +75,37 @@ const Lang = () => {
   }
 
   return (
-    <div className="px-10 bg-[#020617] text-[#f8f7f3] h-full py-10">
-      <h2 className="text-7xl font-bold text-start mb-12 relative -top-6">
+    <div className="px-4 sm:px-6 lg:px-10 bg-[#020617] text-[#f8f7f3] h-full py-10">
+      <h2 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-start mb-12 relative -top-6">
         languages & tools
       </h2>
 
       {/* Wrap in grid with 2 columns */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-y-16 gap-x-20 ">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-8 lg:gap-y-16 gap-x-8 lg:gap-x-20 ">
         {sections.map((section, index) => (
           <div key={index} className="w-full">
-            <h3 className="text-2xl font-semibold mb-6 text-start">
+            <h3 className="text-xl sm:text-2xl font-semibold mb-4 lg:mb-6 text-start">
               {section.section}
             </h3>
-            <div className="flex flex-wrap gap-4 px-4">
+            <div className="flex flex-wrap gap-3 lg:gap-4 px-2 lg:px-4">
               {section.items.map((item, idx) => (
                 <div key={idx} className="flex flex-col items-center space-y-2">
                   <div
-                    className="w-16 h-16 flex items-center justify-center rounded-2xl shadow-lg"
+                    className="w-12 sm:w-14 lg:w-16 h-12 sm:h-14 lg:h-16 flex items-center justify-center rounded-2xl shadow-lg"
                     style={{
-                      background: `${item.dominantColor || '#666'}20`,
-                      border: `2px solid ${item.dominantColor || '#666'}`,
+                      background: `${item.dominantColor || "#666"}20`,
+                      border: `2px solid ${item.dominantColor || "#666"}`,
                     }}
                   >
                     <img
-                      src={item.logo.replace(/^\//, './')}
+                      src={item.logo.replace(/^\//, "./")}
                       alt={item.name}
-                      className="w-10 h-10"
+                      className="w-8 sm:w-9 lg:w-10 h-8 sm:h-9 lg:h-10"
                     />
                   </div>
-                  <p className="text-sm font-medium">{item.name}</p>
+                  <p className="text-xs sm:text-sm font-medium text-center">
+                    {item.name}
+                  </p>
                 </div>
               ))}
             </div>
